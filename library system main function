@@ -1,0 +1,63 @@
+package librarysystem;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+        Library library = new Library();
+
+      
+        library.addBook("Harry Potter", "J.K. Rowling");
+        library.addBook("The Lord of the Rings", "J.R.R. Tolkien");
+        library.addBook("To Kill a Mockingbird", "Harper Lee");
+        library.addBook("1984", "George Orwell");
+        library.addBook("The Alchemist", "Paulo Coelho");
+
+        int choice;
+
+        do {
+            System.out.println("\n===== Library System =====");
+            System.out.println("1. Add Book");
+            System.out.println("2. Show Books");
+            System.out.println("3. Borrow Book");
+            System.out.println("4. Return Book");
+            System.out.println("5. Exit");
+            System.out.print("Choose option: ");
+
+            while (!input.hasNextInt()) {
+                System.out.println("Please enter a valid number.");
+                input.next(); 
+            }
+
+            choice = input.nextInt();
+            input.nextLine(); 
+
+            switch (choice) {
+                case 1 -> {
+                    System.out.print("Enter title: ");
+                    String title = input.nextLine();
+                    System.out.print("Enter author: ");
+                    String author = input.nextLine();
+                    library.addBook(title, author);
+                }
+                case 2 -> library.showBooks();
+                case 3 -> {
+                    System.out.print("Enter title to borrow: ");
+                    library.borrowBook(input.nextLine());
+                }
+                case 4 -> {
+                    System.out.print("Enter title to return: ");
+                    library.returnBook(input.nextLine());
+                }
+                case 5 -> System.out.println("Goodbye.");
+                default -> System.out.println("Invalid choice.");
+            }
+
+        } while (choice != 5);
+
+        input.close();
+    }
+}
