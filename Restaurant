@@ -1,0 +1,24 @@
+let burger = 10;
+let fries = 5;
+let drink = 3;
+let dessert = 6;
+let wallet = 25;
+
+let total = burger+fries+drink+dessert;
+console.log("The food total = " + total);
+
+let tax = total * 0.10;
+console.log("Tax = " + tax);
+
+let finalCost = total + tax;
+console.log("The final cost = " + finalCost);
+
+if (wallet >= finalCost) {
+    let change = wallet - finalCost;
+    console.log("You have enough money");
+    console.log("Your change = " + change);
+} else {
+    let missingMoney = finalCost - wallet;
+    console.log("Sorry, you do not have enough money");
+    console.log("You still need " + missingMoney);
+}
