@@ -1,0 +1,18 @@
+let burgerPrice = 10;
+let friesPrice = 5;
+let drinkPrice = 3;
+let moneyInWallet = 20;
+
+let totalCost = burgerPrice + friesPrice + drinkPrice;
+console.log("Your order total is: $" + totalCost);
+
+if (moneyInWallet >= totalCost) {
+    let change = moneyInWallet - totalCost;
+    console.log("You have enough money! Enjoy your meal.");
+    console.log("Your change is: $" + change);
+} else {let missingMoney = totalCost - moneyInWallet;
+
+    console.log("Sorry, you do not have enough money.");
+    console.log("You need $" + missingMoney + " more.");
+
+}
